@@ -14,7 +14,11 @@
         <header></header>
         <nav></nav>
         <section>
-            <button v-on:click="agregar">Agregar</button>
+            <label for="idNom">Nombre: </label>
+            <input v-model="nombre" id="idNom" type="text">
+            <label for="idApe">Apellido: </label>
+            <input @keypress.enter="agregar2" v-model="apellido" id="idApe" type="text" >
+            <!--<button v-on:click="agregar">Agregar</button> -->
             <ul>
                 <!--
                 <li>{{lista[0].nombre}} A: {{lista[0].apellido}}</li>
@@ -28,8 +32,8 @@
                 <li>{{lista[4]}}</li>-->
                 <!--buena pratica el index, con un separador que va hacer el guion -->
                 <li v-for="({nombre,apellido},index) in lista">
-                    <h1>{{index+1}}-{{nombre}}</h1>
-                    <h2>{{apellido}}</h2>
+                    <h3 v-show="nombre!==null">{{index+1}}-{{nombre}}</h3>
+                    <h4 v-show="apellido!==null">{{apellido}}</h4>
                 </li>
             </ul>
         </section>
